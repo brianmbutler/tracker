@@ -2,7 +2,19 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+
+  hinting: false,
+
+  'babel': {
+    nonStandard: false,
+    optional: [
+      'es7.asyncFunctions',
+     'es7.decorators'
+    ]
+  }
+
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
