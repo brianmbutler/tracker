@@ -1,7 +1,7 @@
 {
   "name": "tracker",
-  "version": "0.0.0",
-  "description": "Sdemo test app",
+  "version": "0.0.1",
+  "description": "demo test app",
   "private": false,
   "directories": {
     "doc": "doc",
@@ -30,10 +30,15 @@
     "ember-cli-inject-live-reload": "^1.3.0",
     "ember-cli-qunit": "0.3.13",
     "ember-cli-release": "0.2.3",
+    "ember-cli-sass": "4.0.1",
     "ember-cli-uglify": "^1.0.1",
     "ember-data": "1.0.0-beta.18",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
+    "ember-file-drop": "0.1.0",
+    "ember-modal-dialog": "0.7.4",
+    "ember-paper": "0.1.1",
+    "ember-pouch": "2.0.1",
     "express": "^4.12.3",
     "glob": "^5.0.5",
     "morgan": "^1.5.2"
