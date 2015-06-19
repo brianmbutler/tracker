@@ -1,0 +1,46 @@
+{{!--{{#md-toolbar}}
+      <div class="md-toolbar-tools">
+        {{#md-button class="md-icon-button"}}
+          {{md-icon md-svg-icon="images/icons/menu.svg"}}
+        {{/md-button}}
+          <h2>
+              <span>Toolbar with icon buttons</span>
+          </h2>
+          <span flex></span>
+        {{#md-button class="md-icon-button"}}
+          {{md-icon md-svg-icon="images/icons/favorite.svg"}}
+        {{/md-button}}
+        {{#md-button class="md-icon-button"}}
+          {{md-icon md-svg-icon="images/icons/more_vert.svg"}}
+        {{/md-button}}
+      </div>
+
+{{#md-button class="md-raised" action="login"}}Login{{/md-button}}
+{{#md-button class="md-raised" classNames="md-warn" action="sign-up"}}Sign-up{{/md-button}}
+{{/md-toolbar}}
+
+--}}
+
+<div>
+
+
+<h3>Welcome to Tracker</h3>
+
+<p>Copy text goes here for super-awesome-times</p>
+
+{{#link-to 'sidebar'}}Pretend I'm Logged In{{/link-to}}
+
+{{#link-to 'employee-new'}}New Employee{{/link-to}}
+{{#link-to 'employee-list'}}Employees{{/link-to}}
+
+</div>
+
+
+<div>
+File Drop Test
+
+{{#file-drop file=attachment onChange='handleAttachment'}}
+Drag & Drop your file or click to browse
+{{/file-drop}}
+
+</div>

@@ -1,3 +1,81 @@
-<h2 id="title">Welcome to Ember.js</h2>
+{{#paper-nav-container open=drawerOpen classNames="ember-app"}}
 
+{{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2"
+            flex-layout="column"
+            flex=true}}
+
+    {{#paper-toolbar}}
+        <div class="md-toolbar-tools">
+            {{#link-to 'index'}}
+                <img src="sd-logo.png" height="48">
+            {{/link-to}}
+        </div>
+    {{/paper-toolbar}}
+
+
+
+{{#paper-content}}
+<nav class="sidenav">
+
+<ul>
+<li>{{#link-to 'dashboard'}}Dashboard{{/link-to}}</li>
+<li>{{#link-to 'employee-new'}}New Employee{{/link-to}}</li>
+<li>{{#link-to 'employee-list'}}Show Employees{{/link-to}}</li>
+</ul>
+</nav>
+{{/paper-content}}
+
+{{/paper-sidenav}}
+
+{{#paper-content flex-layout="column" flex=true}}
 {{outlet}}
+{{/paper-content}}
+
+{{/paper-nav-container}}
+    <!---
+    <div flex>
+        <ul class="docs-menu">
+            {{#link-to 'dashboard' activeClass="parentActive" tagName='li'}}
+                {{#link-to 'dashboard' class="md-button"}}Dashboard{{/link-to}}
+            {{/link-to}}
+
+            {{#link-to 'employee-new' activeClass="parentActive" tagName='li'}}
+                {{#link-to 'employee-new' class="md-button"}}New Employee{{/link-to}}
+            {{/link-to}}
+
+        </ul>
+    </div>
+
+
+<div layout="column" role="main" flex tabindex="-1">
+
+        <div class="md-toolbar-tools">
+            {{#md-button class="md-icon-button" hide-gt-sm='' aria-label="Toggle Menu" action='toggleSidebar'}}
+                {{md-icon md-svg-src="images/icons/ic_menu_24px.svg"}}
+            {{/md-button}}
+
+            <div class="fill-height" flex layout="row">
+                <h2 class="md-toolbar-item md-breadcrumb">
+                    <span>
+                        <span hide-sm hide-md>Demos</span>
+                        <span class="docs-menu-separator-icon" style="" hide-sm hide-md>
+                         <img src="images/docArrow.png" aria-hidden="true" alt="">
+
+                        </span>
+                    </span>
+                    <span class="md-breadcrumb-page">{{demoName}}</span>
+                </h2>
+            </div>
+
+            <span flex></span>
+
+            <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
+
+            </div>
+
+        </div>
+
+
+
+
+  </div> -->
