@@ -20,3 +20,9 @@ os:
 
 install:
   - npm install
+
+services:
+  - couchdb
+
+before_script:
+  - curl -X PUT localhost:5984/employees
