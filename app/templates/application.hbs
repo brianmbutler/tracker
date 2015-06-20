@@ -1,38 +1,49 @@
-{{#paper-nav-container open=drawerOpen classNames="ember-app"}}
+{{#paper-nav-container open=drawerOpen classNames="ember-app" }}
 
-{{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2"
-            flex-layout="column"
-            flex=true}}
+  {{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2" flex-layout="column" flex=true}}
 
     {{#paper-toolbar}}
-        <div class="md-toolbar-tools">
-            {{#link-to 'index'}}
-                <img src="sd-logo.png" height="48">
-            {{/link-to}}
-        </div>
+      <div class="md-toolbar-tools">
+        {{#link-to 'index'}}
+          <img src="sd-logo.png" height="48">
+        {{/link-to}}
+      </div>
+      {{#link-to 'employee-new'}}New Employee{{/link-to}}
+      {{#link-to 'employee-list'}}Employee List{{/link-to}}
+
+      {{#paper-button raised=true action="login" }}Login{{/paper-button}}
+      {{#paper-button raised=true classNames="md-warn" action="sign-up" }}Sign-up{{/paper-button}}
     {{/paper-toolbar}}
 
 
+    {{#paper-content}}
+      <nav class="sidenav">
 
-{{#paper-content}}
-<nav class="sidenav">
+        <ul>
+          <li>
+            {{#link-to 'dashboard'}}Dashboard{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'employee-new'}}New Employee{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'employee-list'}}Show Employees{{/link-to}}
+          </li>
+        </ul>
+      </nav>
+    {{/paper-content}}
 
-<ul>
-<li>{{#link-to 'dashboard'}}Dashboard{{/link-to}}</li>
-<li>{{#link-to 'employee-new'}}New Employee{{/link-to}}</li>
-<li>{{#link-to 'employee-list'}}Show Employees{{/link-to}}</li>
-</ul>
-</nav>
-{{/paper-content}}
+  {{/paper-sidenav}}
+  {{/paper-nav-container}}
 
-{{/paper-sidenav}}
+  {{#paper-content flex-layout="column" flex=true}}
+    {{outlet}}
+  {{/paper-content}}
 
-{{#paper-content flex-layout="column" flex=true}}
-{{outlet}}
-{{/paper-content}}
 
-{{/paper-nav-container}}
-    <!---
+
+
+<!---
     <div flex>
         <ul class="docs-menu">
             {{#link-to 'dashboard' activeClass="parentActive" tagName='li'}}
@@ -50,7 +61,7 @@
 <div layout="column" role="main" flex tabindex="-1">
 
         <div class="md-toolbar-tools">
-            {{#md-button class="md-icon-button" hide-gt-sm='' aria-label="Toggle Menu" action='toggleSidebar'}}
+            {{#md-button class="md-icon-button" hide-gt-sm='' aria-label="Toggle Menu"}}
                 {{md-icon md-svg-src="images/icons/ic_menu_24px.svg"}}
             {{/md-button}}
 

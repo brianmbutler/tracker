@@ -1,0 +1,27 @@
+<h1>Documents</h1>
+
+
+<label name="title">
+  Title
+  {{input value=doc.title}}
+  </label>
+
+<label name="number">
+  Number
+  {{input value=doc.number}}
+</label>
+
+<label name = "file">{{yield}}
+  File
+
+</label>
+
+<button id="save"
+    {{action 'save' model}}
+    disabled={{isSaving}}>
+  {{#if isSaving}}
+      Saving
+  {{else}}
+      Save
+  {{/if}}
+</button>

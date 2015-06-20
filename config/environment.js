@@ -4,17 +4,17 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'tracker',
     podModulePrefix: 'tracker/pods',
-   // firebase: 'https://blinding-torch-7719.firebaseio.com/',
+    // firebase: 'https://blinding-torch-7719.firebaseio.com/',
     environment: environment,
     contentSecurityPolicy: {
-       'default-src': "'none'",
-       'font-src': "'self' https://fonts.gstatic.com",
-       'connect-src': "'self' http://localhost:5984",
-       'frame-src': "'self' http://*.firebaseio.com",
-       'script-src': "'self' 'unsafe-eval' 'unsafe-inline' http://*.firebaseio.com",
-       'img-src': "'self'",
-       'style-src': "'self 'unsafe-inline' https://fonts.googleapis.com"
-          },
+      'default-src': "'none'",
+      'font-src': "'self' https://fonts.gstatic.com",
+      'connect-src': "'self' http://localhost:5984",
+      'frame-src': "'self' http://*.firebaseio.com",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' http://*.firebaseio.com",
+      'img-src': "'self'",
+      'style-src': "'self 'unsafe-inline' https://fonts.googleapis.com"
+    },
 
     baseURL: '/',
     locationType: 'auto',
@@ -26,8 +26,8 @@ module.exports = function(environment) {
         'ember-routing-named-substates': true,
         'ember-views-component-block-info': true,
         'ember-routing-htmlbars-improved-actions': true
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+          // Here you can enable experimental features on an ember canary build
+          // e.g. 'with-controller': true
       }
     },
 
@@ -57,16 +57,16 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-ENV.remote_couch = 'http://localhost:5984/employees';
-ENV.local_couch = 'employees';
+  ENV.remote_couch = 'http://localhost:5984/employees';
+  ENV.local_couch = 'employees';
 
   if (environment === 'production') {
     ENV.baseURL = '/safetydoxcouch/';
     ENV.remote_couch = 'http://safetydox.iriscouch.com/employee';
 
-ENV.contentSecurityPolicy = {
-  'connect-src': "'self' " + ENV.remove_couch.substring(0, ENV.remote_couch.indexOf('/', 9))
-};
-}
+    ENV.contentSecurityPolicy = {
+      'connect-src': "'self' " + ENV.remove_couch.substring(0, ENV.remote_couch.indexOf('/', 9))
+    };
+  }
   return ENV;
 };

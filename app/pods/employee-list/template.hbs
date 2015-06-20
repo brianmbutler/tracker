@@ -1,1 +1,31 @@
-{{outlet}}
+<table>
+<thead>
+<tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Department</th>
+      <th>  || </th>
+      <th>Course Title</th>
+      <th>Delete User</th>
+</tr>
+</thead>
+
+<tbody>
+ {{#each model as |employee|}}
+
+ <tr>
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.title}}</td>
+      <td>{{employee.department}}</td>
+      <td> || </td>
+      <td>{{employee.expiration}}</td>
+      <td>{{#paper-button action="deleteEmployee"}}Delete{{/paper-button}}</td>
+</tr>
+ {{/each}}
+
+ {{#paper-content}}
+ {{outlet}}
+ {{/paper-content}}
+
+</tbody>
+</table>

@@ -1,1 +1,34 @@
-{{outlet}}
+
+
+<h1>New Employee</h1>
+
+{{input type="text" value=employee.firstName}}
+{{input type="text" value=employee.lastName}}
+
+{{employee.firstName}} employee.firstName<br>
+{{model.firstName}} model.firstName<br>
+{{model.employee.firstName}} model.employee.firstName<br>
+
+{{#paper-button action="save"}}Save{{/paper-button}}
+
+
+{{#paper-button action="showModal"}}Toggle Modal{{/paper-button}}
+
+{{#if isModalVisible}}
+  {{#modal-dialog  alignment="center"
+                  translucentOverlay=true
+                  close="closeModal"}}
+  {{component modalDialogName modalContext=modalContext }}
+
+{{paper-text label="First Name" value=model.firstName}}
+{{paper-text label="Last Name" value=model.lastName}}
+{{paper-text label="Title" value=model.title}}
+{{paper-text label="Department" value=model.department}}
+<br>
+{{! {{paper-text label="Course Title" value=employee.doc.course}}
+{{! {{paper-text type="date" label="Expiration" value=employee.doc.expiration}}
+
+{{#paper-button action="closeModal"}}Cancel{{/paper-button}}
+{{#paper-button action="employeeDidChange"}}Save{{/paper-button}}
+{{/modal-dialog}}
+{{/if}}
