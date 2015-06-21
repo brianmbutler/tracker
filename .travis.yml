@@ -4,21 +4,19 @@ language: node_js
 sudo: false
 
 node_js:
-  - "0.10"
   - "0.12"
   - "iojs"
+
+cache:
+  directories:
+    - node_modules
 
 before_install:
   - "npm config set spin false"
   - "npm install -g npm@^2"
-  - "npm --version"
-
-os:
-  - osx
-  - linux
-
 
 install:
+  - npm install -g bower
   - npm install
   - bower install
 
@@ -27,3 +25,6 @@ services:
 
 before_script:
   - curl -X PUT localhost:5984/employees
+
+script:
+  - npm test
