@@ -20,6 +20,7 @@ os:
 
 install:
   - npm install
+  - bower install
 
 services:
   - couchdb
