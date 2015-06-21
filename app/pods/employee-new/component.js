@@ -7,10 +7,21 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     //    this.doc     = {};
-    //    this.employee = {};
+    this.employee = {};
+  },
+
+  actions: {
+
+    employeeDidChange(employee) {
+      this.set('employee', employee);
+      //  this.set('doc', doc);
+      this.send('save');
+    }
   }
 
 });
+
+
 
 /*
 actions: {

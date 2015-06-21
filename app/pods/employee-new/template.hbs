@@ -1,15 +1,15 @@
 
 
-<h1>New Employee</h1>
+<h1>New model</h1>
 
-{{input type="text" value=employee.firstName}}
-{{input type="text" value=employee.lastName}}
+{{input type="text" value=model.firstName}}
+{{input type="text" value=model.lastName}}
 
-{{employee.firstName}} employee.firstName<br>
 {{model.firstName}} model.firstName<br>
-{{model.employee.firstName}} model.employee.firstName<br>
+{{model.firstName}} model.firstName<br>
+{{model.model.firstName}} model.model.firstName<br>
 
-{{#paper-button action="save"}}Save{{/paper-button}}
+{{#paper-button action="save"}}  Save  {{/paper-button}}
 
 
 {{#paper-button action="showModal"}}Toggle Modal{{/paper-button}}
@@ -25,8 +25,8 @@
 {{paper-text label="Title" value=model.title}}
 {{paper-text label="Department" value=model.department}}
 <br>
-{{! {{paper-text label="Course Title" value=employee.doc.course}}
-{{! {{paper-text type="date" label="Expiration" value=employee.doc.expiration}}
+{{! {{paper-text label="Course Title" value=model.doc.course}}
+{{! {{paper-text type="date" label="Expiration" value=model.doc.expiration}}
 
 {{#paper-button action="closeModal"}}Cancel{{/paper-button}}
 {{#paper-button action="employeeDidChange"}}Save{{/paper-button}}
