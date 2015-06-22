@@ -56,17 +56,19 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
   }
-
+/*
   ENV.remote_couch = 'http://localhost:5984/employees';
   ENV.local_couch = 'employees';
+
 
   if (environment === 'production') {
     ENV.baseURL = '/safetydoxcouch/';
     ENV.remote_couch = 'http://safetydox.iriscouch.com/employee';
 
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' " + ENV.remove_couch.substring(0, ENV.remote_couch.indexOf('/', 9))
+      'connect-src': "'self' " + ENV.remote_couch.substring(0, ENV.remote_couch.indexOf('/', 9))
     };
   }
+*/
   return ENV;
 };

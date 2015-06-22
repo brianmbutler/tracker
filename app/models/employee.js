@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import { Model } from 'ember-pouch';
 
-export default DS.Model.extend({
+export default Model.extend({
 
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
@@ -14,8 +15,5 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   number: DS.attr('string'),
   isActive: DS.attr('boolean'),
-  docs: DS.hasMany('doc', {
-    async: true
-  }),
-  rev: DS.attr('string')
+  docs: DS.hasMany('doc', { async: true, serialize: true })
 });

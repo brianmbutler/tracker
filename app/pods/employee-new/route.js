@@ -5,30 +5,26 @@ const {
 
 export default Ember.Route.extend({
 
-  model() {
-      return this.store.findAll('employee');
+  init() {
+    this._super(...arguments);
+    this.employee = {};
+    this.doc = {};
+  },
+
+  async model() {
+      var docs = this.store.findAll('doc');
+      var employees = this.store.findAll('employee');
+
+      return docs;
 
     },
 
-    /*    setupController(controller, model) {
+  /**   Does not seem to do anything
+  setupController(controller, model) {
           this._super(controller, model);
           controller.set("employee-new", this.modelFor("employee"));
 
-        },
-
-    */
-
-    /*    afterModel() {
-          var me = this;
-          var docsPromise = this.store.find('doc');
-
-          docsPromise.then(function(docs) {
-            me.controllerFor('employee-form').set('doc', docs);
-          });
-
-          return docsPromise;
-        },
-        */
+        },  */
 
     actions: {
 
@@ -47,26 +43,23 @@ export default Ember.Route.extend({
           set(applicationController, 'isModalVisible', false);
         },
 
-
-
-        /*      employeeDidChange(employee) {
+      employeeDidChange(employee) {
                 this.set('employee', employee);
-                //  this.set('doc', doc);
                 this.send('save');
-              },
-*/
-        /*     Not working, data going in as null
-                async save() {
-                  var newEmployee = this.store.createRecord('employee', this.get('employee'));
-                  newEmployee.save().then(() => {
-                    this.transitionTo('employee-list')
-                  })
-                }
-        */
-        save() {
-          var newEmployee = this.store.createRecord('employee').then(() => {
-              return newEmployee.save());
-          });
+        },
+
+        async save() {
+          var store = this.store;
+          var empAttributes = this.get('employee');
+          var docAttributes = this.get('doc');
+
+          var employee = store.createRecord('employee', empAttributes);
+
+          try {
+            var company = await employee.save();
+          } finally {
+            this.transitionTo('employee-list');
+          }
+        }
     }
-}
 });

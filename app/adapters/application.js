@@ -1,12 +1,11 @@
 import config from '../config/environment';
 import PouchDB from 'pouchdb';
-import {
-  Adapter
-}
-from 'ember-pouch';
+import { Adapter } from 'ember-pouch';
 
-var remote = new PouchDB(config.remote_couch);
-var db = new PouchDB(config.local_couch);
+
+var remote = new PouchDB('http://localhost:5984/employees');
+var db = new PouchDB('local_pouch');
+
 
 db.sync(remote, {
   live: true, // do a live, ongoing sync
@@ -14,9 +13,12 @@ db.sync(remote, {
 });
 
 export default Adapter.extend({
-  db: db,
+  db: db  //,
 
   // Change watcher for ember-data
+
+/*  Observer to sync changed files, temporarily commented out for testing.
+    Changed this.container.lookup('store:main') to 'service.store'
   immediatelyLoadAllChangedRecords: function() {
     this.db.changes({
       since: 'now',
@@ -28,10 +30,12 @@ export default Adapter.extend({
       if (!obj.type || obj.type === '') {
         return;
       }
-      var store = this.container.lookup('store:main');
+      var store = this.container.lookup('sevice:store');
       store.find(obj.type);
     }.bind(this));
   }.on('init')
+
+  */
 
 
 });
