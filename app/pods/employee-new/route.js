@@ -5,28 +5,30 @@ const {
 
 export default Ember.Route.extend({
 
-  async model() {
-      try {
-        let employees = await this.store.find('employee');
-        return employees;
-      } catch (err) {
-        console.log(err);
-      }
+  model() {
+      return this.store.findAll('employee');
+
     },
 
-    /*
-     afterModel() {
-       var me = this;
-       var docsPromise = this.store.find('doc');
+    /*    setupController(controller, model) {
+          this._super(controller, model);
+          controller.set("employee-new", this.modelFor("employee"));
 
-      docsPromise.then(function(docs) {
-         me.controllerFor('employee-form').set('doc', docs);
-       });
+        },
 
-       return docsPromise;
-     },
+    */
 
-     */
+    /*    afterModel() {
+          var me = this;
+          var docsPromise = this.store.find('doc');
+
+          docsPromise.then(function(docs) {
+            me.controllerFor('employee-form').set('doc', docs);
+          });
+
+          return docsPromise;
+        },
+        */
 
     actions: {
 
@@ -45,6 +47,8 @@ export default Ember.Route.extend({
           set(applicationController, 'isModalVisible', false);
         },
 
+
+
         /*      employeeDidChange(employee) {
                 this.set('employee', employee);
                 //  this.set('doc', doc);
@@ -59,18 +63,10 @@ export default Ember.Route.extend({
                   })
                 }
         */
-        async save() {
-          var store = this.store;
-          var empAttributes = this.get('employee');
-          var employee = store.createRecord('employee', empAttributes);
-
-          this.set('isSaving', true);
-
-          try {
-            var employee = await employee.save();
-          } finally {
-            this.set('isSaving', false);
-          }
-        }
+        save() {
+          var newEmployee = this.store.createRecord('employee').then(() => {
+              return newEmployee.save());
+          });
     }
+}
 });
