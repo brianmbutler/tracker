@@ -5,16 +5,10 @@ const {
 
 export default Ember.Route.extend({
 
-
  async model() {
-      var docs = this.store.findAll('doc');
       var employees = this.store.findAll('employee');
-
-      return docs;
-
+      return employees;
     },
-
-
 
   /**   Does not seem to do anything
   setupController(controller, model) {
@@ -24,7 +18,7 @@ export default Ember.Route.extend({
         },  */
 
  actions: {
-
+/*
       showModal(modalDialogName, modalContext) {
           const applicationController = this.controller;
 
@@ -38,27 +32,28 @@ export default Ember.Route.extend({
         closeModal() {
           const applicationController = this.controller;
           set(applicationController, 'isModalVisible', false);
-        }  //,
-    }
-/*
+        } //,
+
      employeeDidChange(employee) {
                 this.set('employee', employee);
                 this.send('save');
         },
 
-        async save() {
-          var store = this.store;
-          var empAttributes = this.get('employee');
-          var docAttributes = this.get('doc');
+    async save() {
 
-          var employee = store.createRecord('employee', empAttributes);
+      var empAttributes = this.get('employee');
 
-          try {
-            var company = await employee.save();
-          } finally {
-            this.transitionTo('employee-list');
-          }
-        }
+      this.set('isSaving', true);
+
+      try {
+      await this.store.createRecord('employee', empAttributes).save();
+
+      } finally {
+        this.set('isSaving', false);
+        this.send('closeModal');
+      }
     }
-*/
+    */
+  }
+
 });

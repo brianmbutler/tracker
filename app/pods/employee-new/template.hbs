@@ -1,15 +1,16 @@
-
-
-<h1>New model</h1>
+<h1>New Employee</h1>
 
 {{input value=model.firstName}}
 {{input value=model.lastName}}
+{{input value=model.title}}
 
 {{!-- Just for testing --}}
 {{model.firstName}} model.firstName<br>
 {{model.lastName}} model.lastName<br>
+{{model.title}} model.title<br>
 {{!-- Just for testing--}}
 
+<button {{action "save"}}> Save </button>
 
 {{#paper-button action="save" model=model}}  Save  {{/paper-button}}
 

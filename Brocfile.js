@@ -10,7 +10,7 @@ var app = new EmberApp({
     nonStandard: false,
     optional: [
       'es7.asyncFunctions',
-     'es7.decorators'
+      'es7.decorators'
     ]
   }
 

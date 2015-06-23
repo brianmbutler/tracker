@@ -1,15 +1,16 @@
-import Ember from 'ember';
+/* import Ember from 'ember';
 
-//const { inject } = Ember;
+const { inject } = Ember;
 
 export default Ember.Component.extend({
+
+  sessionService: inject.service('session'),
 
   tagName: 'form',
 
   init() {
     this._super(...arguments);
     this.employee = {};
-    this.doc = {};
   },
 
   actions: {
@@ -32,20 +33,8 @@ export default Ember.Component.extend({
     employeeDidChange(employee) {
                 this.set('employee', employee);
                 this.sendAction('save');
-    },
-
-    async save() {
-          var store = this.store;
-          var empAttributes = this.get('employee');
-          var docAttributes = this.get('doc');
-
-          var employee = store.createRecord('employee', empAttributes);
-
-          try {
-            var company = await employee.save();
-          } finally {
-            this.transitionTo('employee-list');
-          }
     }
   }
 });
+
+*/
