@@ -41,9 +41,9 @@ export default Ember.Route.extend({
         closeModal() {
           const applicationController = this.controller;
           set(applicationController, 'isModalVisible', false);
-        },
+        }   //,
 
-      employeeDidChange(employee) {
+/*      employeeDidChange(employee) {
                 this.set('employee', employee);
                 this.send('save');
         },
@@ -61,5 +61,6 @@ export default Ember.Route.extend({
             this.transitionTo('employee-list');
           }
         }
+*/
     }
 });

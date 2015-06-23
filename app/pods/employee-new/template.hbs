@@ -2,15 +2,16 @@
 
 <h1>New model</h1>
 
-{{input type="text" value=employee.firstName}}
-{{input type="text" value=model.lastName}}
+{{input type="text" value=employee.firstName class="form-control" model=model}}
+{{input type="text" value=model.firstName class="form-control" model=model}}
 
 {{!-- Just for testing --}}
 {{model.firstName}} model.firstName<br>
+{{model.employee.firstName}} model.employee.firstName<br>
 {{!-- Just for testing--}}
 
 
-{{#paper-button action="employeeDidChange"}}  Save  {{/paper-button}}
+{{#paper-button action="save"}}  Save  {{/paper-button}}
 
 
 {{#paper-button action="showModal"}}Toggle Modal{{/paper-button}}
