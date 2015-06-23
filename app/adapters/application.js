@@ -1,11 +1,8 @@
-import config from '../config/environment';
 import PouchDB from 'pouchdb';
 import { Adapter } from 'ember-pouch';
 
-
 var remote = new PouchDB('http://localhost:5984/employees');
-var db = new PouchDB('local_pouch');
-
+var db = new PouchDB('employees');
 
 db.sync(remote, {
   live: true, // do a live, ongoing sync
