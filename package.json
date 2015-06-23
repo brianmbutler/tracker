@@ -37,8 +37,8 @@
     "ember-export-application-global": "^1.0.2",
     "ember-file-drop": "0.1.0",
     "ember-modal-dialog": "0.7.4",
-    "ember-paper": "brianmbutler/ember-paper",
-    "ember-pouch": "git://github.com/nolanlawson/ember-pouch.git#66",
+    "ember-paper": "0.1.2",
+    "ember-pouch": "git://github.com/nolanlawson/ember-pouch.git#master",
     "express": "^4.12.3",
     "glob": "^5.0.5",
     "morgan": "^1.5.2"

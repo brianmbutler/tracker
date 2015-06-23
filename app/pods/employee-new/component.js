@@ -1,31 +1,20 @@
 import Ember from 'ember';
-const {
-  setProperties, set
-} = Ember;
 
-export default Ember.Route.extend({
+//const { inject } = Ember;
 
+export default Ember.Component.extend({
 
- async model() {
-      var docs = this.store.findAll('doc');
-      var employees = this.store.findAll('employee');
+  tagName: 'form',
 
-      return docs;
+  init() {
+    this._super(...arguments);
+    this.employee = {};
+    this.doc = {};
+  },
 
-    },
+  actions: {
 
-
-
-  /**   Does not seem to do anything
-  setupController(controller, model) {
-          this._super(controller, model);
-          controller.set("employee-new", this.modelFor("employee"));
-
-        },  */
-
- actions: {
-
-      showModal(modalDialogName, modalContext) {
+    showModal(modalDialogName, modalContext) {
           const applicationController = this.controller;
 
           setProperties(applicationController, {
@@ -33,20 +22,19 @@ export default Ember.Route.extend({
             modalContext,
             isModalVisible: true
           });
-        },
+    },
 
-        closeModal() {
+    closeModal() {
           const applicationController = this.controller;
           set(applicationController, 'isModalVisible', false);
-        }  //,
-    }
-/*
-     employeeDidChange(employee) {
-                this.set('employee', employee);
-                this.send('save');
-        },
+    },
 
-        async save() {
+    employeeDidChange(employee) {
+                this.set('employee', employee);
+                this.sendAction('save');
+    },
+
+    async save() {
           var store = this.store;
           var empAttributes = this.get('employee');
           var docAttributes = this.get('doc');
@@ -58,7 +46,6 @@ export default Ember.Route.extend({
           } finally {
             this.transitionTo('employee-list');
           }
-        }
     }
-*/
+  }
 });
