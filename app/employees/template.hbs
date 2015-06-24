@@ -14,11 +14,11 @@
  {{#each model as |employee|}}
 
  <tr>
-      <td>{{employee.firstName}}</td>
-      <td>{{employee.title}}</td>
-      <td>{{employee.department}}</td>
+      <td>{{model.firstName}}</td>
+      <td>{{model.title}}</td>
+      <td>{{model.department}}</td>
       <td> || </td>
-      <td>{{employee.expiration}}</td>
+      <td>{{doc.expiration}}</td>
       <td>{{#paper-button action="deleteEmployee"}}Delete{{/paper-button}}</td>
 </tr>
  {{/each}}

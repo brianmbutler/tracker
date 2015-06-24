@@ -6,6 +6,6 @@ export default Model.extend({
   issued: DS.attr('date'),
   expiration: DS.attr('date'),
   number: DS.attr('number'),
-  employees: DS.belongsTo('employee', { async: true, serialize:true })
+  employees: DS.belongsTo('employee', { async: true })
 
 });

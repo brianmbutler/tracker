@@ -8,8 +8,8 @@
           <img src="sd-logo.png" height="48">
         {{/link-to}}
       </div>
-      {{#link-to 'employee-new'}}New Employee{{/link-to}}
-      {{#link-to 'employee-list'}}Employee List{{/link-to}}
+      {{#link-to 'employees.new'}}New Employee{{/link-to}}
+      {{#link-to 'employees'}}Employee List{{/link-to}}
 
       {{#paper-button raised=true action="login" }}Login{{/paper-button}}
       {{#paper-button raised=true classNames="md-warn" action="sign-up" }}Sign-up{{/paper-button}}
@@ -21,13 +21,10 @@
 
         <ul>
           <li>
-            {{#link-to 'dashboard'}}Dashboard{{/link-to}}
+            {{#link-to "employees.new"}}New Employee{{/link-to}}
           </li>
           <li>
-            {{#link-to 'employee-new'}}New Employee{{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'employee-list'}}Show Employees{{/link-to}}
+            {{#link-to 'employees'}}Show Employees{{/link-to}}
           </li>
         </ul>
       </nav>
@@ -36,14 +33,12 @@
   {{/paper-sidenav}}
 
 
+
   {{#paper-content flex-layout="column" flex=true}}
     {{outlet}}
   {{/paper-content}}
 
   {{/paper-nav-container}}
-
-
-
 <!---
     <div flex>
         <ul class="docs-menu">
@@ -90,4 +85,4 @@
 
 
 
-  </div> -->
+  </div> --}}

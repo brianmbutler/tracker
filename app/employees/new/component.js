@@ -1,16 +1,16 @@
-/* import Ember from 'ember';
+import Ember from 'ember';
 
-const { inject } = Ember;
+//const { inject } = Ember;
 
 export default Ember.Component.extend({
 
-  sessionService: inject.service('session'),
+//  sessionService: inject.service('session'),
 
   tagName: 'form',
 
   init() {
     this._super(...arguments);
-    this.employee = {};
+    this.set('employee', {});
   },
 
   actions: {
@@ -32,9 +32,20 @@ export default Ember.Component.extend({
 
     employeeDidChange(employee) {
                 this.set('employee', employee);
-                this.sendAction('save');
+                this.sendAction('async save');
+    },
+
+    async save() {
+
+      var empAttributes = this.get('employee');
+
+      this.set('isSaving', true);
+
+      try {
+        await this.store.createRecord('employee', empAttributes).save();
+      } finally {
+        this.set('isSaving', false);
+      }
     }
   }
 });
-
-*/

@@ -3,7 +3,6 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'tracker',
-    podModulePrefix: 'tracker/pods',
     // firebase: 'https://blinding-torch-7719.firebaseio.com/',
     environment: environment,
     contentSecurityPolicy: {
@@ -20,15 +19,10 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
-        'ember-htmlbars': true,
-         'ember-htmlbars-attribute-syntax': true,
-        'ember-htmlbars-inline-if-helper': true,
-        'ember-htmlbars-component-generation': true,
-        'ember-routing-named-substates': true,
-        'ember-metal-injected-properties': true,
+        'ember-routing-htmlbars-improved-actions': true,
         'ember-views-component-block-info': true,
-        'ember-htmlbars-block-params': true,
-        'ember-routing-htmlbars-improved-actions': true
+        'ember-htmlbars-component-generation': true,
+        'ember-application-instance-initializers': true
           // Here you can enable experimental features on an ember canary build
           // e.g. 'with-controller': true
       }

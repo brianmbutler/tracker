@@ -3,6 +3,7 @@ import { Model } from 'ember-pouch';
 
 export default Model.extend({
 
+
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   address: DS.attr('string'),
@@ -15,5 +16,5 @@ export default Model.extend({
   title: DS.attr('string'),
   number: DS.attr('string'),
   isActive: DS.attr('boolean'),
-  docs: DS.hasMany('doc', { async: true, serialize: true })
+  docs: DS.hasMany('doc', { async: true })
 });

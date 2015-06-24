@@ -10,12 +10,10 @@ db.sync(remote, {
 });
 
 export default Adapter.extend({
-  db: db  //,
+  db: db,
 
   // Change watcher for ember-data
 
-/*  Observer to sync changed files, temporarily commented out for testing.
-    Changed this.container.lookup('store:main') to 'service.store'
   immediatelyLoadAllChangedRecords: function() {
     this.db.changes({
       since: 'now',
@@ -24,15 +22,9 @@ export default Adapter.extend({
     }).on('change', function(change) {
       var obj = this.db.rel.parseDocID(change.id);
       // skip changes for non-relational_pouch docs. E.g., design docs.
-      if (!obj.type || obj.type === '') {
-        return;
-      }
-      var store = this.container.lookup('sevice:store');
+      if (!obj.type || obj.type === '') { return }
+      var store = this.container.lookup('service:store');
       store.find(obj.type);
     }.bind(this));
   }.on('init')
-
-  */
-
-
 });

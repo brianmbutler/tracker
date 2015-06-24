@@ -7,11 +7,11 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
 
-    this.route ('employee-edit'), {path: ':employee_id/edit'};
-    this.route ('employee-new');
-    this.route('employee-list');
-    this.route('documents');
-  this.route('dashboard');
+  this.route('index', {path: '/'});
+
+  this.route('employees', function() {
+    this.route('new')
+  });
 
 });
 
